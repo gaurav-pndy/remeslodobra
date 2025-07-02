@@ -1,26 +1,30 @@
-import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Programs from "./components/Programs";
-import Impact from "./components/Impact";
-import Testimonials from "./components/Testimonials";
-import Donation from "./components/Donation";
-import Footer from "./components/Footer";
+import React, { useEffect, useRef, useState } from "react";
+
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AppLayout from "./layout/AppLayout";
+import HomePage from "./pages/HomePage";
+import FullBlog from "./pages/FullBlog";
 
 function App() {
-  return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Programs />
-      <Impact />
-      {/* <Testimonials /> */}
-      <Donation />
-      <Footer />
-    </div>
-  );
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+  const router = createBrowserRouter([
+    {
+      element: <AppLayout />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        {
+          path: "/blog/:blogId",
+          element: <FullBlog />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;
