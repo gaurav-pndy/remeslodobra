@@ -23,7 +23,7 @@ function App() {
           element: <BlogCategory />,
         },
         {
-          path: "/blog/:blogId",
+          path: "/category/:categoryId/blog/:blogId",
           element: <FullBlog />,
         },
       ],

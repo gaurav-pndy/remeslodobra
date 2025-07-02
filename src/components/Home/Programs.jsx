@@ -25,7 +25,7 @@ const Programs = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {category.blogs.slice(0, 3).map((blog) => (
                 <Link
-                  to={`/blog/${blog.id}`}
+                  to={`/category/${category.id}/blog/${blog.id}`}
                   key={blog.id}
                   className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
                 >
