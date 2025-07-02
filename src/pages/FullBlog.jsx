@@ -1,16 +1,14 @@
 import { useParams } from "react-router-dom";
-import { programsData } from "../constants/programsData";
+import { blogsData } from "../constants/blogsData";
 
 const FullBlog = () => {
   const { blogId } = useParams();
-  const blog = programsData
-    .flatMap((p) => p.blogs)
-    .find((b) => b.id === blogId);
+  const blog = blogsData.flatMap((p) => p.blogs).find((b) => b.id === blogId);
 
   if (!blog) return <p className="text-seasalt">Blog not found</p>;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 mt-20 text-seasalt">
+    <div className="max-w-6xl mx-auto px-4 py-24 text-seasalt">
       <h1 className="text-4xl md:text-5xl font-bold mb-4">{blog.title}</h1>
       <p className="text-gray-500 text-xl mb-8">{blog.date}</p>
       <img

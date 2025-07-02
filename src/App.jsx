@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./layout/AppLayout";
 import HomePage from "./pages/HomePage";
 import FullBlog from "./pages/FullBlog";
+import BlogCategory from "./pages/BlogCategory";
 
 function App() {
   useEffect(() => {
@@ -16,6 +17,10 @@ function App() {
         {
           path: "/",
           element: <HomePage />,
+        },
+        {
+          path: "/category/:categoryId",
+          element: <BlogCategory />,
         },
         {
           path: "/blog/:blogId",
